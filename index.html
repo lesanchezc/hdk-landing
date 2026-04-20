@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HDK | Agencia de Inbound Marketing Fitness</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=Barlow:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --red: #E63946;
+            --black: #0A0A0A;
+            --black-2: #111111;
+            --white: #F5F0E8;
+            --gray: rgba(245,240,232,0.6);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Barlow', sans-serif;
+            background-color: var(--black);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Barlow Condensed', sans-serif;
+            text-transform: uppercase;
+        }
+
+        /* --- HOVER CONTROLADO --- */
+        .image-hover {
+            transition: 0.4s ease;
+        }
+
+        .image-hover:hover {
+            transform: scale(1.02);
+        }
+
+        /* --- CRED-CARD (AUTORIDAD) --- */
+        .cred-card {
+            background: linear-gradient(180deg, rgba(26,26,26,0.95) 0%, rgba(17,17,17,0.98) 100%);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 18px;
+            padding: 35px 28px;
+            height: 100%;
+            transition: 0.3s ease;
+        }
+
+        .cred-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(230,57,70,0.35);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+        }
+
+        .cred-card h3 {
+            color: var(--white);
+            margin-top: 20px;
+            margin-bottom: 14px;
+            font-size: 1.6rem;
+        }
+
+        /* --- MEJORA VISUAL DE LOGOS (LOCALES) --- */
+        .cred-logo {
+            max-height: 70px;
+            width: auto;
+            object-fit: contain;
+            margin: 0 auto 15px;
+            display: block;
+            padding: 10px;
+            background: rgba(255,255,255,0.03); /* Fondo sutil para destacar el logo */
+            border-radius: 10px;
+            filter: brightness(1.2) contrast(1.1);
+        }
+
+        /* --- NAVEGACIÓN --- */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, transparent 100%);
+            transition: 0.3s;
+            backdrop-filter: blur(6px);
+        }
+
+        .nav-logo {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 900;
+            font-size: 2rem;
+            color: var(--white);
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+        .nav-logo span { color: var(--red); }
+
+        .nav-cta {
+            color: var(--red);
+            border: 1px solid var(--red);
+            padding: 10px 25px;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .nav-cta:hover {
+            background: var(--red);
+            color: white !important;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            padding-top: 40px;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image: url('https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&q=80&w=1920');
+            background-size: cover;
+            background-position: center;
+            z-index: -2;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, rgba(10,10,10,0.96) 25%, rgba(10,10,10,0.8) 55%, rgba(10,10,10,0.3) 100%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            transform: translateY(0);
+            padding-top: 70px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 5.5rem);
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 30px;
+            max-width: 900px;
+        }
+
+        .hero h1 span {
+            display: block;
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: var(--red);
+        }
+
+        .btn-hero {
+            display: inline-block;
+            background: var(--red);
+            color: white;
+            padding: 20px 40px;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            text-decoration: none;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: 0.3s;
+            border: none;
+            box-shadow: 0 10px 30px rgba(230,57,70,0.3);
+        }
+
+        .btn-hero:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(230,57,70,0.4);
+            color: white;
+        }
+
+        /* --- SECCIONES --- */
+        section { padding: 120px 0; }
+
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 30px;
+            line-height: 1;
+        }
+
+        .acc { color: var(--red); }
+
+        .pain-list {
+            list-style: none;
+            padding-left: 0;
+            color: var(--gray);
+            margin-top: 20px;
+        }
+        .pain-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+        .pain-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--red);
+            font-weight: bold;
+        }
+
+        .metodo-card {
+            background: #1A1A1A;
+            padding: 40px;
+            border-left: 3px solid var(--red);
+            height: 100%;
+            transition: 0.3s;
+        }
+
+        .metodo-card:hover { transform: translateY(-10px); background: #222; }
+
+        .metodo-card h3 { color: var(--red); margin-bottom: 15px; }
+
+        .form-wrap {
+            background: linear-gradient(180deg, rgba(26,26,26,0.96) 0%, rgba(17,17,17,0.98) 100%);
+            padding: 40px;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 15px 20px; }
+            .hero-content { 
+                transform: translateY(0);
+                padding-top: 90px;
+            }
+            section { padding: 80px 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="nav-logo">HD<span>K</span></a>
+        <a href="#contacto" class="nav-cta">Asesoría Gratuita</a>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content col-lg-10">
+                <h1>
+                    DEJA DE DEPENDER DEL BOCA A BOCA
+                    <span class="line-accent">Y LLENA TU GIMNASIO CON CLIENTES REALES</span>
+                </h1>
+                <p style="max-width: 600px; font-size: 1.2rem; color: var(--gray); margin-bottom: 45px;">
+                    Implementamos sistemas que generan prospectos todos los días, para que dejes de preocuparte por cómo llenar tus clases.
+                </p>
+                
+                <div style="margin-bottom: 35px; font-size: 0.9rem; color: var(--gray);">
+                    +20 gimnasios trabajando con sistemas de captación activa
+                </div>
+
+                <a href="#contacto" class="btn-hero">Quiero una asesoría gratuita →</a>
+                
+                <p style="margin-top: 15px; font-size: 0.9rem; color: var(--gray);">
+                    Sin compromiso · Te respondemos en menos de 24h
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section style="background-color: var(--black);">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h2 class="section-title">¿TU GIMNASIO NO ESTÁ<br><span class="acc">GENERANDO CLIENTES?</span></h2>
+                    <p style="color: var(--gray); font-size: 1.1rem;">
+                        Invertiste en equipamiento, pero los clientes no llegan como esperabas. Sin un sistema de captación constante, tu gimnasio no crece.
+                    </p>
+                    <ul class="pain-list">
+                        <li>No sabes de dónde vendrá tu próximo cliente</li>
+                        <li>Dependes solo de referidos</li>
+                        <li>Pagas publicidad sin resultados claros</li>
+                    </ul>
+                </div>
+                <div class="col-md-6 text-center">
+                    <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&q=80&w=600" class="img-fluid image-hover" style="border-radius: 20px;" alt="Gimnasio">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background-color: var(--black-2);">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">NUESTRO MÉTODO <span class="acc">HDK</span></h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="metodo-card">
+                        <h3>01. Atracción</h3>
+                        <p>Campañas en Meta Ads y Google Ads para atraer personas cerca de tu gimnasio interesadas en entrenar.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="metodo-card">
+                        <h3>02. Conversión</h3>
+                        <p>Landing pages y automatización para transformar visitas en prospectos listos para inscribirse.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="metodo-card">
+                        <h3>03. Escalamiento</h3>
+                        <p>Email marketing y optimización para aumentar inscripciones de forma constante.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background-color: var(--black);">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">CLIENTES QUE YA <span class="acc">ESTÁN CRECIENDO</span></h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="metodo-card">
+                        <div style="font-size: 2.5rem; color: var(--red); line-height: 1; margin-bottom: 15px;">“</div>
+                        <p style="font-size: 1.05rem; color: var(--white);">"Pasamos de tener horas vacías a llenar clases completas en menos de un mes."</p>
+                        <h4 style="margin-top: 20px; margin-bottom: 5px;">Carlos R.</h4>
+                        <span style="color: var(--gray); font-size: 0.9rem;">Dueño de gimnasio · Maipú</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="metodo-card">
+                        <div style="font-size: 2.5rem; color: var(--red); line-height: 1; margin-bottom: 15px;">“</div>
+                        <p style="font-size: 1.05rem; color: var(--white);">"Ahora recibimos consultas todos los días sin depender del boca a boca."</p>
+                        <h4 style="margin-top: 20px; margin-bottom: 5px;">Fernanda M.</h4>
+                        <span style="color: var(--gray); font-size: 0.9rem;">Centro fitness · La Florida</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="metodo-card">
+                        <div style="font-size: 2.5rem; color: var(--red); line-height: 1; margin-bottom: 15px;">“</div>
+                        <p style="font-size: 1.05rem; color: var(--white);">"Entendimos qué tipo de cliente atraer y dejamos de perder tiempo."</p>
+                        <h4 style="margin-top: 20px; margin-bottom: 5px;">Diego L.</h4>
+                        <span style="color: var(--gray); font-size: 0.9rem;">Box funcional · Concepción</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background-color: var(--black-2);">
+        <div class="container text-center">
+            <h2 class="section-title">RESULTADOS <span class="acc">REALES</span></h2>
+            <p style="color: var(--gray); max-width: 720px; margin: 0 auto 50px;">
+                Métricas que reflejan el impacto de sistemas de captación bien ejecutados para gimnasios.
+            </p>
+
+            <div class="row mt-4 g-4">
+                <div class="col-md-4">
+                    <h3 style="font-size: 3.5rem;">+120</h3>
+                    <p style="color: var(--gray);">Leads generados en 30 días</p>
+                </div>
+                <div class="col-md-4">
+                    <h3 style="font-size: 3.5rem;">+45%</h3>
+                    <p style="color: var(--gray);">Aumento en inscripciones</p>
+                </div>
+                <div class="col-md-4">
+                    <h3 style="font-size: 3.5rem;">3X</h3>
+                    <p style="color: var(--gray);">Retorno sobre inversión</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background-color: var(--black);">
+        <div class="container">
+            <div class="text-center mb-5">
+                <p style="color: var(--red); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px;">
+                    Conocimiento que respalda la estrategia
+                </p>
+                <h2 class="section-title">RESPALDO Y <span class="acc">EXPERIENCIA</span></h2>
+                <p style="color: var(--gray); max-width: 760px; margin: 0 auto;">
+                    Combinamos formación académica, certificaciones especializadas y conocimientos en análisis de mercado para construir estrategias con foco en resultados.
+                </p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="cred-card text-center">
+                        <img src="assets/img/duoc.png" alt="DUOC UC" class="cred-logo img-fluid">
+                        <h3>Ingeniería en Marketing Digital</h3>
+                        <p style="color: var(--gray);">
+                            Formación profesional en DUOC UC con enfoque en estrategia, marketing digital, analítica y desarrollo de soluciones orientadas a resultados.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="cred-card text-center">
+                        <img src="assets/img/hubspot.png" alt="HubSpot Academy" class="cred-logo img-fluid">
+                        <h3>HubSpot Academy</h3>
+                        <p style="color: var(--gray);">
+                            Certificación en Inbound Marketing enfocada en el ciclo completo de atracción, conversión y automatización de clientes.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="cred-card text-center">
+                        <img src="assets/img/aim.png" alt="AIM Chile" class="cred-logo img-fluid">
+                        <h3>AIM Chile</h3>
+                        <p style="color: var(--gray);">
+                            Certificación en investigación de mercados y análisis de datos para la toma de decisiones estratégicas basadas en evidencia.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" style="background-color: var(--black-2);">
+        <div class="container">
+            <div class="row g-5 align-items-start">
+                <div class="col-lg-6">
+                    <p style="color: var(--red); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px;">
+                        Da el siguiente paso
+                    </p>
+                    <h2 class="section-title">¿QUIERES MÁS CLIENTES<br><span class="acc">EN TU GIMNASIO?</span></h2>
+                    <p style="font-size: 1.1rem; max-width: 560px; color: var(--gray);">
+                        Cuéntanos sobre tu gimnasio y conversemos cómo construir un sistema de captación más predecible y rentable.
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-wrap">
+                        <p style="color: var(--gray); margin-bottom: 20px;">
+                            Completa el formulario y te contactaremos en menos de 24 horas.
+                        </p>
+                        <div id="hubspot-form"></div>
+                        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+                        <script>
+                            hbspt.forms.create({
+                                portalId: "50146728",
+                                formId: "cd7c1088-31b1-421c-90ac-610c9e8ff44a",
+                                region: "na1",
+                                target: "#hubspot-form"
+                            });
+                        </script>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center" style="padding-top: 60px;">
+                <p style="color: var(--gray); margin: 0; font-style: italic;">
+                    Estrategia, conversión y análisis para hacer crecer tu gimnasio con más claridad.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer style="padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; background-color: var(--black-2);">
+        <p style="color: var(--gray); font-size: 0.8rem;">© 2026 HDK Agencia Fitness · Estrategia de Inbound Marketing</p>
+    </footer>
+
+</body>
+</html>
