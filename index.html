@@ -37,6 +37,9 @@
             text-transform: uppercase;
         }
 
+        /* --- CLASES PARA GSAP (Fallback automático si no hay GSAP) --- */
+        .reveal { opacity: 1; } 
+
         /* --- HOVER CONTROLADO --- */
         .image-hover {
             transition: 0.4s ease;
@@ -77,7 +80,7 @@
             margin: 0 auto 15px;
             display: block;
             padding: 10px;
-            background: rgba(255,255,255,0.03); /* Fondo sutil para destacar el logo */
+            background: rgba(255,255,255,0.03);
             border-radius: 10px;
             filter: brightness(1.2) contrast(1.1);
         }
@@ -265,21 +268,21 @@
         <div class="hero-overlay"></div>
         <div class="container">
             <div class="hero-content col-lg-10">
-                <h1>
+                <h1 class="reveal" id="hero-title">
                     DEJA DE DEPENDER DEL BOCA A BOCA
                     <span class="line-accent">Y LLENA TU GIMNASIO CON CLIENTES REALES</span>
                 </h1>
-                <p style="max-width: 600px; font-size: 1.2rem; color: var(--gray); margin-bottom: 45px;">
+                <p class="reveal" id="hero-sub" style="max-width: 600px; font-size: 1.2rem; color: var(--gray); margin-bottom: 45px;">
                     Implementamos sistemas que generan prospectos todos los días, para que dejes de preocuparte por cómo llenar tus clases.
                 </p>
                 
-                <div style="margin-bottom: 35px; font-size: 0.9rem; color: var(--gray);">
+                <div class="reveal" id="hero-stats" style="margin-bottom: 35px; font-size: 0.9rem; color: var(--gray);">
                     +20 gimnasios trabajando con sistemas de captación activa
                 </div>
 
-                <a href="#contacto" class="btn-hero">Quiero una asesoría gratuita →</a>
+                <a href="#contacto" class="btn-hero reveal" id="hero-btn">Quiero una asesoría gratuita →</a>
                 
-                <p style="margin-top: 15px; font-size: 0.9rem; color: var(--gray);">
+                <p class="reveal" id="hero-note" style="margin-top: 15px; font-size: 0.9rem; color: var(--gray);">
                     Sin compromiso · Te respondemos en menos de 24h
                 </p>
             </div>
@@ -289,7 +292,7 @@
     <section style="background-color: var(--black);">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-md-6">
+                <div class="col-md-6 reveal-up">
                     <h2 class="section-title">¿TU GIMNASIO NO ESTÁ<br><span class="acc">GENERANDO CLIENTES?</span></h2>
                     <p style="color: var(--gray); font-size: 1.1rem;">
                         Invertiste en equipamiento, pero los clientes no llegan como esperabas. Sin un sistema de captación constante, tu gimnasio no crece.
@@ -300,7 +303,7 @@
                         <li>Pagas publicidad sin resultados claros</li>
                     </ul>
                 </div>
-                <div class="col-md-6 text-center">
+                <div class="col-md-6 text-center reveal-up">
                     <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&q=80&w=600" class="img-fluid image-hover" style="border-radius: 20px;" alt="Gimnasio">
                 </div>
             </div>
@@ -309,23 +312,23 @@
 
     <section style="background-color: var(--black-2);">
         <div class="container">
-            <div class="text-center mb-5">
+            <div class="text-center mb-5 reveal-up">
                 <h2 class="section-title">NUESTRO MÉTODO <span class="acc">HDK</span></h2>
             </div>
             <div class="row g-4">
-                <div class="col-md-4">
+                <div class="col-md-4 metodo-stagger">
                     <div class="metodo-card">
                         <h3>01. Atracción</h3>
                         <p>Campañas en Meta Ads y Google Ads para atraer personas cerca de tu gimnasio interesadas en entrenar.</p>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 metodo-stagger">
                     <div class="metodo-card">
                         <h3>02. Conversión</h3>
                         <p>Landing pages y automatización para transformar visitas en prospectos listos para inscribirse.</p>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 metodo-stagger">
                     <div class="metodo-card">
                         <h3>03. Escalamiento</h3>
                         <p>Email marketing y optimización para aumentar inscripciones de forma constante.</p>
@@ -337,11 +340,11 @@
 
     <section style="background-color: var(--black);">
         <div class="container">
-            <div class="text-center mb-5">
+            <div class="text-center mb-5 reveal-up">
                 <h2 class="section-title">CLIENTES QUE YA <span class="acc">ESTÁN CRECIENDO</span></h2>
             </div>
             <div class="row g-4">
-                <div class="col-md-4">
+                <div class="col-md-4 testimonial-stagger">
                     <div class="metodo-card">
                         <div style="font-size: 2.5rem; color: var(--red); line-height: 1; margin-bottom: 15px;">“</div>
                         <p style="font-size: 1.05rem; color: var(--white);">"Pasamos de tener horas vacías a llenar clases completas en menos de un mes."</p>
@@ -349,7 +352,7 @@
                         <span style="color: var(--gray); font-size: 0.9rem;">Dueño de gimnasio · Maipú</span>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 testimonial-stagger">
                     <div class="metodo-card">
                         <div style="font-size: 2.5rem; color: var(--red); line-height: 1; margin-bottom: 15px;">“</div>
                         <p style="font-size: 1.05rem; color: var(--white);">"Ahora recibimos consultas todos los días sin depender del boca a boca."</p>
@@ -357,7 +360,7 @@
                         <span style="color: var(--gray); font-size: 0.9rem;">Centro fitness · La Florida</span>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 testimonial-stagger">
                     <div class="metodo-card">
                         <div style="font-size: 2.5rem; color: var(--red); line-height: 1; margin-bottom: 15px;">“</div>
                         <p style="font-size: 1.05rem; color: var(--white);">"Entendimos qué tipo de cliente atraer y dejamos de perder tiempo."</p>
@@ -370,22 +373,22 @@
     </section>
 
     <section style="background-color: var(--black-2);">
-        <div class="container text-center">
+        <div class="container text-center reveal-up">
             <h2 class="section-title">RESULTADOS <span class="acc">REALES</span></h2>
             <p style="color: var(--gray); max-width: 720px; margin: 0 auto 50px;">
                 Métricas que reflejan el impacto de sistemas de captación bien ejecutados para gimnasios.
             </p>
 
-            <div class="row mt-4 g-4">
-                <div class="col-md-4">
+            <div class="row mt-4 g-4" id="stats-row">
+                <div class="col-md-4 stat-stagger">
                     <h3 style="font-size: 3.5rem;">+120</h3>
                     <p style="color: var(--gray);">Leads generados en 30 días</p>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 stat-stagger">
                     <h3 style="font-size: 3.5rem;">+45%</h3>
                     <p style="color: var(--gray);">Aumento en inscripciones</p>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 stat-stagger">
                     <h3 style="font-size: 3.5rem;">3X</h3>
                     <p style="color: var(--gray);">Retorno sobre inversión</p>
                 </div>
@@ -395,7 +398,7 @@
 
     <section style="background-color: var(--black);">
         <div class="container">
-            <div class="text-center mb-5">
+            <div class="text-center mb-5 reveal-up">
                 <p style="color: var(--red); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px;">
                     Conocimiento que respalda la estrategia
                 </p>
@@ -406,7 +409,7 @@
             </div>
 
             <div class="row g-4">
-                <div class="col-md-4">
+                <div class="col-md-4 cred-stagger">
                     <div class="cred-card text-center">
                         <img src="assets/img/duoc.png" alt="DUOC UC" class="cred-logo img-fluid">
                         <h3>Ingeniería en Marketing Digital</h3>
@@ -416,7 +419,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-4 cred-stagger">
                     <div class="cred-card text-center">
                         <img src="assets/img/hubspot.png" alt="HubSpot Academy" class="cred-logo img-fluid">
                         <h3>HubSpot Academy</h3>
@@ -426,7 +429,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-4 cred-stagger">
                     <div class="cred-card text-center">
                         <img src="assets/img/aim.png" alt="AIM Chile" class="cred-logo img-fluid">
                         <h3>AIM Chile</h3>
@@ -442,7 +445,7 @@
     <section id="contacto" style="background-color: var(--black-2);">
         <div class="container">
             <div class="row g-5 align-items-start">
-                <div class="col-lg-6">
+                <div class="col-lg-6 reveal-up">
                     <p style="color: var(--red); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px;">
                         Da el siguiente paso
                     </p>
@@ -451,7 +454,7 @@
                         Cuéntanos sobre tu gimnasio y conversemos cómo construir un sistema de captación más predecible y rentable.
                     </p>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6 reveal-up">
                     <div class="form-wrap">
                         <p style="color: var(--gray); margin-bottom: 20px;">
                             Completa el formulario y te contactaremos en menos de 24 horas.
@@ -459,12 +462,20 @@
                         <div id="hubspot-form"></div>
                         <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
                         <script>
-                            hbspt.forms.create({
-                                portalId: "50146728",
-                                formId: "cd7c1088-31b1-421c-90ac-610c9e8ff44a",
-                                region: "na1",
-                                target: "#hubspot-form"
-                            });
+                            // Lógica de carga con timeout para evitar falsos negativos en el fallback
+                            setTimeout(function() {
+                                var targetElement = document.getElementById('hubspot-form');
+                                if (typeof hbspt !== "undefined") {
+                                    hbspt.forms.create({
+                                        portalId: "50146728",
+                                        formId: "cd7c1088-31b1-421c-90ac-610c9e8ff44a",
+                                        region: "na1",
+                                        target: "#hubspot-form"
+                                    });
+                                } else if (targetElement) {
+                                    targetElement.innerHTML = '<div style="padding:20px; border:1px dashed var(--red); text-align:center;">El formulario de contacto no pudo cargarse. Por favor, revisa tu conexión o recarga la página.</div>';
+                                }
+                            }, 1000); // Espera 1 segundo para asegurar la carga del script externo
                         </script>
                     </div>
                 </div>
@@ -481,6 +492,53 @@
     <footer style="padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; background-color: var(--black-2);">
         <p style="color: var(--gray); font-size: 0.8rem;">© 2026 HDK Agencia Fitness · Estrategia de Inbound Marketing</p>
     </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <script>
+        if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
+            gsap.set(".reveal", {opacity: 0});
+            gsap.registerPlugin(ScrollTrigger);
+
+            const tlHero = gsap.timeline({defaults: {ease: "power3.out"}});
+            tlHero.fromTo("#hero-title", {opacity: 0, y: 50}, {opacity: 1, y: 0, duration: 1.2})
+            .fromTo("#hero-sub", {opacity: 0, y: 30}, {opacity: 1, y: 0, duration: 1}, "-=0.8")
+            .fromTo("#hero-stats", {opacity: 0}, {opacity: 1, duration: 0.8}, "-=0.5")
+            .fromTo("#hero-btn", {opacity: 0, scale: 0.9}, {opacity: 1, scale: 1, duration: 0.8}, "-=0.5")
+            .fromTo("#hero-note", {opacity: 0}, {opacity: 1, duration: 0.8}, "-=0.3");
+
+            gsap.to("#hero-btn", {scale: 1.03, duration: 1.5, repeat: -1, yoyo: true, ease: "sine.inOut"});
+
+            gsap.utils.toArray(".reveal-up").forEach(elem => {
+                gsap.from(elem, {
+                    scrollTrigger: {
+                        trigger: elem,
+                        start: "top 85%",
+                        toggleActions: "play none none none"
+                    },
+                    opacity: 0, y: 40, duration: 1, ease: "power2.out"
+                });
+            });
+
+            const sectionsToStagger = [
+                { class: ".metodo-stagger", trigger: ".metodo-stagger" },
+                { class: ".testimonial-stagger", trigger: ".testimonial-stagger" },
+                { class: ".stat-stagger", trigger: "#stats-row" },
+                { class: ".cred-stagger", trigger: ".cred-stagger" }
+            ];
+
+            sectionsToStagger.forEach(config => {
+                gsap.from(config.class, {
+                    scrollTrigger: {
+                        trigger: config.trigger,
+                        start: "top 80%",
+                    },
+                    opacity: 0, y: 30, duration: 0.8, stagger: 0.2, ease: "power2.out"
+                });
+            });
+        }
+    </script>
 
 </body>
 </html>
