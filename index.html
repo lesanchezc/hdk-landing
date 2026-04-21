@@ -37,10 +37,8 @@
             text-transform: uppercase;
         }
 
-        /* --- CLASES PARA GSAP (Fallback automático si no hay GSAP) --- */
         .reveal { opacity: 1; } 
 
-        /* --- HOVER CONTROLADO --- */
         .image-hover {
             transition: 0.4s ease;
         }
@@ -49,7 +47,6 @@
             transform: scale(1.02);
         }
 
-        /* --- CRED-CARD (AUTORIDAD) --- */
         .cred-card {
             background: linear-gradient(180deg, rgba(26,26,26,0.95) 0%, rgba(17,17,17,0.98) 100%);
             border: 1px solid rgba(255,255,255,0.08);
@@ -72,7 +69,6 @@
             font-size: 1.6rem;
         }
 
-        /* --- MEJORA VISUAL DE LOGOS (LOCALES) --- */
         .cred-logo {
             max-height: 70px;
             width: auto;
@@ -85,7 +81,6 @@
             filter: brightness(1.2) contrast(1.1);
         }
 
-        /* --- NAVEGACIÓN --- */
         nav {
             position: fixed;
             top: 0;
@@ -128,7 +123,6 @@
             color: white !important;
         }
 
-        /* --- HERO SECTION --- */
         .hero {
             position: relative;
             min-height: 100vh;
@@ -196,7 +190,6 @@
             color: white;
         }
 
-        /* --- SECCIONES --- */
         section { padding: 120px 0; }
 
         .section-title {
@@ -228,22 +221,218 @@
             font-weight: bold;
         }
 
-        .metodo-card {
-            background: #1A1A1A;
-            padding: 40px;
-            border-left: 3px solid var(--red);
-            height: 100%;
-            transition: 0.3s;
+        /* --- ÁREA 2: NUESTRO MÉTODO HDK MODIFICADA --- */
+        .metodo-container {
+            position: relative;
+        }
+        
+        .metodo-line {
+            position: absolute;
+            top: 40%;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--red), transparent);
+            opacity: 0.1;
+            z-index: 0;
         }
 
-        .metodo-card:hover { transform: translateY(-10px); background: #222; }
+        .metodo-card {
+            background: #1A1A1A;
+            padding: 50px 40px;
+            border-top: 1px solid rgba(230, 57, 70, 0.2);
+            height: 100%;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
 
-        .metodo-card h3 { color: var(--red); margin-bottom: 15px; }
+        .metodo-card:hover { 
+            transform: translateY(-15px); 
+            background: #222; 
+            border-top-color: var(--red);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .metodo-number {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            font-size: 8rem;
+            font-weight: 900;
+            font-family: 'Barlow Condensed';
+            color: rgba(230, 57, 70, 0.04);
+            line-height: 1;
+            z-index: -1;
+            transition: 0.4s;
+        }
+        
+        .metodo-card:hover .metodo-number {
+            color: rgba(230, 57, 70, 0.08);
+            transform: scale(1.1);
+        }
+
+        .metodo-icon {
+            width: 45px;
+            height: 45px;
+            margin-bottom: 25px;
+            color: var(--red);
+        }
+
+        .metodo-card h3 { 
+            color: var(--white); 
+            margin-bottom: 15px; 
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+        }
+        
+        .metodo-card p {
+            color: var(--gray);
+            font-size: 1.05rem;
+            line-height: 1.5;
+        }
 
         .form-wrap {
             background: linear-gradient(180deg, rgba(26,26,26,0.96) 0%, rgba(17,17,17,0.98) 100%);
             padding: 40px;
             border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        /* --- ESTILOS TESTIMONIOS --- */
+        .testimonial-card {
+            background: #151515;
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 40px;
+            height: 100%;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            overflow: hidden;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--red);
+            background: #1A1A1A;
+        }
+        .testimonial-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--red);
+            margin-bottom: 20px;
+        }
+        .testimonial-badge {
+            display: inline-block;
+            background: rgba(230, 57, 70, 0.1);
+            color: var(--red);
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            border: 1px solid rgba(230, 57, 70, 0.2);
+        }
+        .quote-icon {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            font-size: 3rem;
+            color: var(--red);
+            opacity: 0.15;
+            line-height: 1;
+        }
+
+        /* --- ÁREA 1: RESULTADOS REALES MODIFICADA --- */
+        .result-card {
+            background: #111;
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: left;
+            height: 100%;
+            transition: 0.3s;
+            position: relative;
+        }
+        .result-card:hover {
+            border-color: rgba(255,255,255,0.1);
+            background: #151515;
+        }
+        .graph-container {
+            width: 100%;
+            height: 80px;
+            margin-top: 25px;
+            display: flex;
+            align-items: flex-end;
+            position: relative;
+        }
+        
+        /* Card 1: Barras */
+        .mini-chart {
+            width: 100%;
+            height: 60px;
+            display: flex;
+            align-items: flex-end;
+            gap: 4px;
+        }
+        .chart-bar {
+            flex: 1;
+            background: var(--red);
+            border-radius: 2px 2px 0 0;
+            opacity: 0.3;
+            height: 0%; 
+        }
+        .chart-bar.active { opacity: 1; }
+
+        /* Card 2: Sparkline */
+        .sparkline-svg {
+            width: 100%;
+            height: 100%;
+        }
+        .sparkline-path {
+            fill: none;
+            stroke: var(--red);
+            stroke-width: 3;
+            stroke-linecap: round;
+            stroke-dasharray: 400;
+            stroke-dashoffset: 400;
+        }
+
+        /* Card 3: Radial */
+        .radial-container {
+            width: 70px;
+            height: 70px;
+            margin-left: auto;
+        }
+        .radial-svg {
+            transform: rotate(-90deg);
+        }
+        .radial-bg {
+            fill: none;
+            stroke: rgba(255,255,255,0.05);
+            stroke-width: 6;
+        }
+        .radial-progress {
+            fill: none;
+            stroke: var(--red);
+            stroke-width: 6;
+            stroke-dasharray: 220;
+            stroke-dashoffset: 220;
+            stroke-linecap: round;
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        .trend-up {
+            color: #4ade80;
+            font-size: 0.8rem;
+            font-weight: 700;
         }
 
         @media (max-width: 768px) {
@@ -253,6 +442,7 @@
                 padding-top: 90px;
             }
             section { padding: 80px 0; }
+            .metodo-line { display: none; }
         }
     </style>
 </head>
@@ -282,6 +472,10 @@
 
                 <a href="#contacto" class="btn-hero reveal" id="hero-btn">Quiero una asesoría gratuita →</a>
                 
+                <p class="reveal" id="hero-pressure" style="margin-top: 20px; font-size: 1rem; color: var(--gray); font-style: italic;">
+                    “Cada día sin un sistema de captación es dinero que estás perdiendo”
+                </p>
+
                 <p class="reveal" id="hero-note" style="margin-top: 15px; font-size: 0.9rem; color: var(--gray);">
                     Sin compromiso · Te respondemos en menos de 24h
                 </p>
@@ -311,25 +505,38 @@
     </section>
 
     <section style="background-color: var(--black-2);">
-        <div class="container">
+        <div class="container metodo-container">
+            <div class="metodo-line"></div>
             <div class="text-center mb-5 reveal-up">
                 <h2 class="section-title">NUESTRO MÉTODO <span class="acc">HDK</span></h2>
             </div>
             <div class="row g-4">
                 <div class="col-md-4 metodo-stagger">
                     <div class="metodo-card">
+                        <div class="metodo-number">01</div>
+                        <svg class="metodo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+                        </svg>
                         <h3>01. Atracción</h3>
                         <p>Campañas en Meta Ads y Google Ads para atraer personas cerca de tu gimnasio interesadas en entrenar.</p>
                     </div>
                 </div>
                 <div class="col-md-4 metodo-stagger">
                     <div class="metodo-card">
+                        <div class="metodo-number">02</div>
+                        <svg class="metodo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zM22 6l-10 7L2 6"/>
+                        </svg>
                         <h3>02. Conversión</h3>
                         <p>Landing pages y automatización para transformar visitas en prospectos listos para inscribirse.</p>
                     </div>
                 </div>
                 <div class="col-md-4 metodo-stagger">
                     <div class="metodo-card">
+                        <div class="metodo-number">03</div>
+                        <svg class="metodo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                        </svg>
                         <h3>03. Escalamiento</h3>
                         <p>Email marketing y optimización para aumentar inscripciones de forma constante.</p>
                     </div>
@@ -345,26 +552,32 @@
             </div>
             <div class="row g-4">
                 <div class="col-md-4 testimonial-stagger">
-                    <div class="metodo-card">
-                        <div style="font-size: 2.5rem; color: var(--red); line-height: 1; margin-bottom: 15px;">“</div>
-                        <p style="font-size: 1.05rem; color: var(--white);">"Pasamos de tener horas vacías a llenar clases completas en menos de un mes."</p>
-                        <h4 style="margin-top: 20px; margin-bottom: 5px;">Carlos R.</h4>
+                    <div class="testimonial-card">
+                        <div class="quote-icon">“</div>
+                        <img src="https://i.pravatar.cc/150?u=carlos" alt="Carlos R." class="testimonial-img">
+                        <div class="testimonial-badge">Capacidad Máxima</div>
+                        <p style="font-size: 1.05rem; color: var(--white); position: relative; z-index: 1;">"Pasamos de tener horas vacías a llenar clases completas en menos de un mes."</p>
+                        <h4 style="margin-top: 25px; margin-bottom: 5px;">Carlos R.</h4>
                         <span style="color: var(--gray); font-size: 0.9rem;">Dueño de gimnasio · Maipú</span>
                     </div>
                 </div>
                 <div class="col-md-4 testimonial-stagger">
-                    <div class="metodo-card">
-                        <div style="font-size: 2.5rem; color: var(--red); line-height: 1; margin-bottom: 15px;">“</div>
-                        <p style="font-size: 1.05rem; color: var(--white);">"Ahora recibimos consultas todos los días sin depender del boca a boca."</p>
-                        <h4 style="margin-top: 20px; margin-bottom: 5px;">Fernanda M.</h4>
+                    <div class="testimonial-card">
+                        <div class="quote-icon">“</div>
+                        <img src="https://i.pravatar.cc/150?u=fernanda" alt="Fernanda M." class="testimonial-img">
+                        <div class="testimonial-badge">Consultas Diarias</div>
+                        <p style="font-size: 1.05rem; color: var(--white); position: relative; z-index: 1;">"Ahora recibimos consultas todos los días sin depender del boca a boca."</p>
+                        <h4 style="margin-top: 25px; margin-bottom: 5px;">Fernanda M.</h4>
                         <span style="color: var(--gray); font-size: 0.9rem;">Centro fitness · La Florida</span>
                     </div>
                 </div>
                 <div class="col-md-4 testimonial-stagger">
-                    <div class="metodo-card">
-                        <div style="font-size: 2.5rem; color: var(--red); line-height: 1; margin-bottom: 15px;">“</div>
-                        <p style="font-size: 1.05rem; color: var(--white);">"Entendimos qué tipo de cliente atraer y dejamos de perder tiempo."</p>
-                        <h4 style="margin-top: 20px; margin-bottom: 5px;">Diego L.</h4>
+                    <div class="testimonial-card">
+                        <div class="quote-icon">“</div>
+                        <img src="https://i.pravatar.cc/150?u=diego" alt="Diego L." class="testimonial-img">
+                        <div class="testimonial-badge">Eficiencia 100%</div>
+                        <p style="font-size: 1.05rem; color: var(--white); position: relative; z-index: 1;">"Entendimos qué tipo de cliente atraer y dejamos de perder tiempo."</p>
+                        <h4 style="margin-top: 25px; margin-bottom: 5px;">Diego L.</h4>
                         <span style="color: var(--gray); font-size: 0.9rem;">Box funcional · Concepción</span>
                     </div>
                 </div>
@@ -381,16 +594,66 @@
 
             <div class="row mt-4 g-4" id="stats-row">
                 <div class="col-md-4 stat-stagger">
-                    <h3 style="font-size: 3.5rem;">+120</h3>
-                    <p style="color: var(--gray);">Leads generados en 30 días</p>
+                    <div class="result-card">
+                        <div class="dashboard-header">
+                            <div>
+                                <p style="color: var(--red); font-size: 0.7rem; font-weight: 900; margin: 0;">AD PERFORMANCE</p>
+                                <h3 style="font-size: 2.8rem; margin: 0;">+120</h3>
+                            </div>
+                            <span class="trend-up">↑ 88%</span>
+                        </div>
+                        <p style="color: var(--white); margin-bottom: 5px; font-weight: 700;">Leads generados en 30 días</p>
+                        <p style="color: var(--gray); font-size: 0.8rem; opacity: 0.8;">Gimnasio funcional · RM</p>
+                        <div class="graph-container">
+                            <div class="mini-chart" id="chart-1">
+                                <div class="chart-bar" style="height: 20%"></div>
+                                <div class="chart-bar" style="height: 40%"></div>
+                                <div class="chart-bar" style="height: 35%"></div>
+                                <div class="chart-bar" style="height: 60%"></div>
+                                <div class="chart-bar" style="height: 80%"></div>
+                                <div class="chart-bar active" style="height: 95%"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-4 stat-stagger">
-                    <h3 style="font-size: 3.5rem;">+45%</h3>
-                    <p style="color: var(--gray);">Aumento en inscripciones</p>
+                    <div class="result-card">
+                        <div class="dashboard-header">
+                            <div>
+                                <p style="color: var(--red); font-size: 0.7rem; font-weight: 900; margin: 0;">CONVERSION RATE</p>
+                                <h3 style="font-size: 2.8rem; margin: 0;">+45%</h3>
+                            </div>
+                            <span class="trend-up">↑ 12%</span>
+                        </div>
+                        <p style="color: var(--white); margin-bottom: 5px; font-weight: 700;">Aumento en inscripciones</p>
+                        <p style="color: var(--gray); font-size: 0.8rem; opacity: 0.8;">Centro fitness · Concepción</p>
+                        <div class="graph-container">
+                            <svg class="sparkline-svg" viewBox="0 0 200 60">
+                                <path class="sparkline-path" d="M0,55 Q25,50 50,40 T100,30 T150,15 T200,5" />
+                            </svg>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-4 stat-stagger">
-                    <h3 style="font-size: 3.5rem;">3X</h3>
-                    <p style="color: var(--gray);">Retorno sobre inversión</p>
+                    <div class="result-card">
+                        <div class="dashboard-header">
+                            <div>
+                                <p style="color: var(--red); font-size: 0.7rem; font-weight: 900; margin: 0;">ROI RATIO</p>
+                                <h3 style="font-size: 2.8rem; margin: 0;">3X</h3>
+                            </div>
+                            <span class="trend-up">↑ 200%</span>
+                        </div>
+                        <p style="color: var(--white); margin-bottom: 5px; font-weight: 700;">Retorno sobre inversión</p>
+                        <p style="color: var(--gray); font-size: 0.8rem; opacity: 0.8;">Box cross training · 200 socios</p>
+                        <div class="graph-container">
+                            <div class="radial-container">
+                                <svg class="radial-svg" width="70" height="70" viewBox="0 0 80 80">
+                                    <circle class="radial-bg" cx="40" cy="40" r="35" />
+                                    <circle class="radial-progress" cx="40" cy="40" r="35" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -456,13 +719,15 @@
                 </div>
                 <div class="col-lg-6 reveal-up">
                     <div class="form-wrap">
-                        <p style="color: var(--gray); margin-bottom: 20px;">
-                            Completa el formulario y te contactaremos en menos de 24 horas.
+                        <p style="color: var(--white); font-weight: 700; margin-bottom: 10px; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.5px;">
+                            “Solo tomamos un número limitado de gimnasios al mes.”
+                        </p>
+                        <p style="color: var(--gray); margin-bottom: 20px; font-size: 0.9rem;">
+                            Completa el formulario y analizaremos si tu centro califica para nuestro sistema.
                         </p>
                         <div id="hubspot-form"></div>
                         <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
                         <script>
-                            // Lógica de carga con timeout para evitar falsos negativos en el fallback
                             setTimeout(function() {
                                 var targetElement = document.getElementById('hubspot-form');
                                 if (typeof hbspt !== "undefined") {
@@ -473,9 +738,9 @@
                                         target: "#hubspot-form"
                                     });
                                 } else if (targetElement) {
-                                    targetElement.innerHTML = '<div style="padding:20px; border:1px dashed var(--red); text-align:center;">El formulario de contacto no pudo cargarse. Por favor, revisa tu conexión o recarga la página.</div>';
+                                    targetElement.innerHTML = '<div style="padding:20px; border:1px dashed var(--red); text-align:center;">El formulario de contacto no pudo cargarse. Por favor, revisa tu conexión.</div>';
                                 }
-                            }, 1000); // Espera 1 segundo para asegurar la carga del script externo
+                            }, 1000);
                         </script>
                     </div>
                 </div>
@@ -506,6 +771,7 @@
             .fromTo("#hero-sub", {opacity: 0, y: 30}, {opacity: 1, y: 0, duration: 1}, "-=0.8")
             .fromTo("#hero-stats", {opacity: 0}, {opacity: 1, duration: 0.8}, "-=0.5")
             .fromTo("#hero-btn", {opacity: 0, scale: 0.9}, {opacity: 1, scale: 1, duration: 0.8}, "-=0.5")
+            .fromTo("#hero-pressure", {opacity: 0}, {opacity: 1, duration: 0.8}, "-=0.3")
             .fromTo("#hero-note", {opacity: 0}, {opacity: 1, duration: 0.8}, "-=0.3");
 
             gsap.to("#hero-btn", {scale: 1.03, duration: 1.5, repeat: -1, yoyo: true, ease: "sine.inOut"});
@@ -519,6 +785,35 @@
                     },
                     opacity: 0, y: 40, duration: 1, ease: "power2.out"
                 });
+            });
+
+            // --- ANIMACIONES ÁREA 1: RESULTADOS REALES ---
+            // Card 1: Barras
+            gsap.utils.toArray(".chart-bar").forEach(bar => {
+                const targetHeight = bar.style.height;
+                gsap.fromTo(bar, 
+                    { height: "0%" }, 
+                    { 
+                        scrollTrigger: { trigger: "#stats-row", start: "top 80%" },
+                        height: targetHeight, duration: 1.5, ease: "power4.out", delay: Math.random() * 0.5
+                    }
+                );
+            });
+
+            // Card 2: Sparkline
+            gsap.to(".sparkline-path", {
+                strokeDashoffset: 0,
+                duration: 2,
+                ease: "power2.out",
+                scrollTrigger: { trigger: "#stats-row", start: "top 80%" }
+            });
+
+            // Card 3: Radial Progress (Ej: 75%)
+            gsap.to(".radial-progress", {
+                strokeDashoffset: 220 - (220 * 0.75),
+                duration: 2,
+                ease: "power2.out",
+                scrollTrigger: { trigger: "#stats-row", start: "top 80%" }
             });
 
             const sectionsToStagger = [
